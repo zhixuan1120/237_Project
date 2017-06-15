@@ -1,0 +1,388 @@
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;	
+}
+
+/* universal */
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	padding-top: 60px;
+	font-size: 15px;
+}
+
+section {
+	overflow: auto;
+}
+
+textarea {
+	resize: vertical;
+}
+
+.center {
+	text-align: center;
+
+	h1 {
+		margin-bottom: 10px;
+	}
+}
+
+/* typograph */
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+}
+
+h1 {
+	font-size: 3em;
+	letter-spacing: -2px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.7em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-weight: normal;
+	color: $gray-light;
+}
+
+p {
+	font-size: 1.1em;
+	line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+	float: left;
+	margin-right: 10px;
+	font-size: 1.7em;
+	color: #fff;
+	text-transfrorm: uppercase;
+	letter-spacing: -1px;
+	padding-top: 12px;
+	font-weight: bold;
+	line-height: 1;
+
+	&:hover {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+#login_btn {
+	margin-top: -15px;
+}
+
+div.navbar.navbar-default {
+	background-color: #2fa4e7;
+  	border-color: #1995dc;
+  	margin-top: -60px;
+  	
+	a {
+		color: white;
+		&:hover {
+			color: black;
+		}
+	}
+}
+
+.navbar-form {
+	border-top: 0px;
+	border-bottom: 0px;
+	margin-bottom: 0px;
+	padding-left: 15px;
+}
+
+#fat-menu {
+	ul.dropdown-menu {
+		a {
+			color: black;
+			&:hover {
+				color: white;
+				background-color: #1995dc;
+			}
+		}
+	}
+}
+
+button.navbar-toggle {
+	margin-top: -38px;
+}
+
+/* footer */
+
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid $gray-medium-light;
+	color: $gray-light;
+
+	a {
+		color: $gray;
+		&:hover {
+			color: $gray-darker;
+		}
+	}
+	
+	small {
+		float: left;
+	}
+
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 10px;
+		}
+	}
+}
+
+/* miscellaneous */
+
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
+}
+
+#instruction {
+	padding: 20px;
+	background-color: white; 
+	margin-top: 65px;
+
+	/* outer shadows  (note the rgba is red, green, blue, alpha) */
+	-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+	-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+	/* rounded corners */
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 7px; 
+	border-radius: 7px;
+
+	/* gradients */
+	background: -webkit-gradient(linear, left top, left bottom, 
+	color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5)); 
+	background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+}
+
+/* sidebar */
+
+aside {
+	section {
+	  	padding: 10px 0;
+	  	border-top: 1px solid $gray-lighter;
+	  	&:first-child {
+        	border: 0;
+	    	padding-top: 0;
+	  	}
+
+	  	span {
+	    	display: block;
+	    	margin-bottom: 3px;
+	    	line-height: 1;
+	   	}
+
+	  	h1 {
+	    	font-size: 1.6em;
+	    	text-align: left;
+	    	letter-spacing: -1px;
+	   		margin-bottom: 3px;
+	  	}
+	}
+}
+
+.gravator {
+	float: left;
+	margin-right: 10px;
+}
+
+/* checkmark */
+
+.valid_name {
+	position: absolute;
+	top:2%;
+	right: 10px;
+}
+
+.valid_email {
+	position: absolute;
+	top:24%;
+	right: 10px;
+}
+
+.valid_password {
+	position: absolute;
+	top:45%;
+	right: 10px;
+}
+
+.valid_confirm_password {
+	position: absolute;
+	top:67%;
+	right: 10px;
+}
+
+.checkmark {
+    display:inline-block;
+    width: 22px;
+    height:22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    z-index: 2;
+}
+
+.checkmark_circle {
+    position: absolute;
+    width:22px;
+    height:22px;
+    background-color: green;
+    border-radius:11px;
+    left:0;
+    top:0;
+}
+
+.checkmark_stem {
+    position: absolute;
+    width:3px;
+    height:9px;
+    background-color:#fff;
+    left:11px;
+    top:6px;
+}
+
+.checkmark_kick {
+    position: absolute;
+    width:3px;
+    height:3px;
+    background-color:#fff;
+    left:8px;
+    top:12px;
+}
+
+/* forms */
+
+form#new_user {
+	width: 330px;
+    margin: 0 auto;
+    margin-top: 80px;
+    position: relative;
+}
+
+a#sign_up_link {
+	text-decoration: none;
+}
+
+a#reset_password_link {
+	text-decoration: none;
+}
+
+input, textarea, select, .uneditable-input {
+	border: 1px solid #bbb;
+	width: 100%;
+	padding: 10px;
+	height: auto;
+	margin-bottom: 15px;
+	@include box-sizing;
+}
+
+#error_explanation {
+	color: #f00;
+	ul {
+		list-style: none;
+		margin: 0 0 18px 0;
+	}
+}
+
+.field_with_errors {
+	@extend .control-group !optional;
+	@extend .error !optional;
+}
+
+/* users index */
+
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid $gray-lighter;
+		&:last-child {
+			border-bottom: 1px solid $gray-lighter;
+		}
+
+	}
+}
+
+/* microposts */
+
+.microposts {
+	list-style: none;
+
+	li {
+		padding: 10px 0;
+		border-top: 1px solid #e8e8e8;
+	}
+}
+
+.content {
+	display: block;
+}
+
+.timestamp {
+	color: $gray-light;
+}
+
+#micropost_email {
+	height: 34px;
+}
+
+#post {
+	margin-top: 20px;
+	margin-left: -40px;
+	width: auto;
+}
+
+/* search user */
+ul.ui-autocomplete {
+	position: absolute;
+	list-style: none;
+	margin: 0;
+	padding:0 ;
+	border: solid 1px #999;
+	cursor: default;
+	li {
+		background-color: #FFF;
+		border-top: solid 1px #DDD;
+		margin: 0;
+		padding: 0;
+		a {
+			color: #000;
+			display: block;
+			padding: 3px;
+		}
+		a.ui-state-hover, a.ui-state-active {
+			background-color: #FFFCB2;
+		}
+	}
+}
+
+.ui-helper-hidden-accessible {
+	display: none;
+}

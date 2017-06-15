@@ -1,0 +1,12 @@
+<% provide(:title, "Reset Password") %>
+<h1>重置密码</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_tag password_resets_path, method: :post do %>
+			<p>请输入注册邮箱，我们将向您的邮箱发送重置方法。</p>
+			<%= text_field_tag :email, params[:email], placeholder: "Email" %>
+
+			<%= submit_tag "更新密码", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

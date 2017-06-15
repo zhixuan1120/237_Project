@@ -1,0 +1,1 @@
+$('#<%= @vote.micropost_id %>').replaceWith('<li id="<%= @vote.micropost_id %>"><span class="content"><%= @vote.micropost.content %></span><em><%= @count %> Vote</em> | <%= link_to "Cancel", delete_micropost_path(@vote.micropost, count: @count), method: "delete", remote: true %></li>');

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>一pie即合</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body class="controller-<%= params[:controller] %>">
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert <%= bootstrap_class_for(key) %>"> <%= value %></div>
+    <% end %>
+    <%= yield %>
+    <% if signed_in? %>
+      <%= subscribe_to "/messages/new" %>
+    <% end %>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+//This makes micropost#new action responds to javescript request from getScript()
+$('#post').append('<%= j render @feed_items %>');
+
+//This will update pagination to current page
+<% if @feed_items.next_page %>
+	$('.pagination').replaceWith('<%= j will_paginate @feed_items %>');
+<% else %>
+	$('.pagination').remove();
+<% end %>

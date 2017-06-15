@@ -1,0 +1,5 @@
+<% if !@user.errors.any? %>
+	$('div#placeholder').html('<div class="alert alert-success" >Success. Please activate your account through confirmation email.</div>');
+<% else %>
+  	$('div#placeholder').html('<%= j render 'shared/error_messages', object: @user %>');
+<% end %>

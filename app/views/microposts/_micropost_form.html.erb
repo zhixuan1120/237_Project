@@ -1,0 +1,36 @@
+<%= form_for @micropost, remote: true do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<% # above code is equivalent to render partial: "shared/error_messages", locals: { object: f.object } %>
+	<% # the variable f is a FormBuilder object that incorporates the knowledge about the model object represented by @micropost passed into form_for %>
+	 
+	<div class='row'>
+		<div class="col-xs-6">
+		<%= f.text_field :email, placeholder: "Email"%>
+		</div>
+		<div class='col-xs-6'>
+		<select id="micropost_tag" name="micropost[tag]" class="form-control">
+			
+			<option value>Pick a tag</option>
+
+		<% if @love_post.nil? %>
+			<option value="love">General</option>
+		<% end %>
+			
+			<option value="miss">Homework</option>
+
+			<option value="apologize">Travel</option>
+
+			<option value="thought">Research</option>
+		</select>
+		</div>
+	</div>
+	<%= f.text_area :content, placeholder: "I want to say..." %>
+	<div class="row">
+		<div class="col-xs-6">
+			<label class="countdown"/>
+		</div>
+		<div class="col-xs-6">
+			<%= f.submit "Send", class: "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>

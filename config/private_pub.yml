@@ -1,0 +1,10 @@
+development:
+  server: "https://localhost:9292/faye"
+  secret_token: "secret"
+test:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+production:
+  server: "https://uci-mypubserver.herokuapp.com/faye"
+  secret_token: "MY_KEY"
+  signature_expiration: 86400 # one day

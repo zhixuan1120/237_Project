@@ -1,0 +1,24 @@
+<% title("一pie即合") %>
+<%= javascript_include_tag "microposts.js" %>
+<div class="row">	
+	<div class="col-xs-3">
+		<% if current_user.inform == false%>
+			<div  id="instruction">
+			If you leave "email" field blank, we will publish your message publicly.
+			<br>
+			<%= link_to "Got it", user_path(@user, mode: false), method: 'put', remote: true%>
+			
+			</div>
+		<% end %>
+	</div>
+	
+	<div  class="col-xs-6">
+		<div id="placeholder" style="height: 100px;"></div>
+		<%= render 'micropost_form' %>
+		<ul id="post" class="microposts">
+		<%= render @feed_items %>
+		</ul>
+	</div>
+	
+	<%= will_paginate @feed_items %>
+</div>

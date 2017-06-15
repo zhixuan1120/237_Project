@@ -1,0 +1,11 @@
+<% title("Message Sent") %>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2">
+  	<% if @user.microposts.any? %>
+  	<ul class="microposts" >
+  		<%= render @microposts %>
+  	</ul>
+  	<%= will_paginate @microposts %>
+  	<% end %>
+  </div>
+</div>

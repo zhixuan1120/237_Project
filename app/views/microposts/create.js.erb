@@ -1,0 +1,18 @@
+$("#micropost_content").val('');
+$("#micropost_email").val('');
+$("#micropost_tag").val('Pick a tag');
+
+var remaining = 500 - jQuery('#micropost_content').val().length;
+jQuery('.countdown').text(remaining + ' character(s) remaining');
+
+$('div#placeholder').html('<div id="notice" class="alert alert-info" style="height:85%;" ><%= flash[:notice] %></div>');
+
+setTimeout(function(){
+	$('div#placeholder').html('');
+}, 5000);
+
+<% if !@post.nil? %>
+	<% publish_to "/messages/new" do %>
+		$('#post').prepend('<%= j render @post %>');
+	<% end %>
+<% end %>
